@@ -13,3 +13,11 @@ Nesta pasta, você encontrará os códigos referentes às aulas expositivas. Sã
 
 ### 2. Práticas
 Aqui estão armazenados os códigos correspondentes às atividades práticas. Essas práticas visam fortalecer os conceitos aprendidos em sala, proporcionando oportunidades para aplicação e exercício das habilidades adquiridas.
+
+##  anotaçães
+
+npm init -y (cria o arquivo package-lock.json)
+
+npm run dev (inicia a aplicação)
+
+npm install readline-sync (habilita leitura do teclado em JS)
