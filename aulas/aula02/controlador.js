@@ -38,8 +38,7 @@ function atualizar() {
 
 function remover() {
   const nome = readline.question("Entre com o nome do produto: ");
-  const posicao =
-    produtos.findIndex(produto => produto.nome === nome);
+  const posicao = produtos.findIndex(produto => produto.nome === nome);
   if (posicao >= 0) {
     produtos.splice(posicao, 1);
   } else {
