@@ -47,11 +47,21 @@ const escolherOpcao = (opcao) => {
 
     case '5': {
       const nome = readline.question('digite o nome do contato: ');
-      controlador.removerContato(nome); 
+      controlador.removerContato(nome);
       break;
     };
-    case '6': process.exit(0); 
+    case '6': process.exit(0);
 
     default: console.log('opcao invalida!');
-  }
+  };
 };
+
+const main = () => {
+  while (true) {
+    menu();
+    const opcao = readline.question('Escolha uma opcao: ');
+    escolherOpcao(opcao);
+  };
+};
+
+main();

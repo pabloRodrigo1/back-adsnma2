@@ -3,8 +3,8 @@ class contato {
     this.nome = nome;
     this.email = email;
     this.telefone = telefone;
-  }
-}
+  };
+};
 
 
 module.exports = contato;
