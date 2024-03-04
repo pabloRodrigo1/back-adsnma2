@@ -33,4 +33,4 @@ const removerContato = (nome) => {
   }
 };
 
-module.exports = (adicionarContato, listarContatos, buscarContatos, atualizarContato, removerContato);
+module.exports= {adicionarContato, listarContatos, buscarContatos, atualizarContato, removerContato};

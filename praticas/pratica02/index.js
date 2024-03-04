@@ -21,13 +21,13 @@ const escolherOpcao = (opcao) => {
       break;
     };
     case '2': {
-      const contatos = controlador.listarContato();
+      const contatos = controlador.listarContatos();
       contatos.forEach(contato => console.log(contato));
       break;
     };
     case '3': {
       const nome = readline.question('digite o nome do contato: ');
-      const contato = controlador.buscarContato(nome);
+      const contato = controlador.buscarContatos(nome);
 
       if (contato !== null) {
         console.log(contato)
