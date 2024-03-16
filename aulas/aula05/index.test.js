@@ -24,8 +24,7 @@ describe('Teste da API /produtos', () => {
   })
 
   test('Deve retornar 201 e um JSON no POST /produtos', async () => {
-    const response = await request.post("/produtos")
-      .send({ nome: "Banana", preco: 15.00 });
+    const response = await request.post("/produtos").send({ nome: "Banana", preco: 15.00 });
     expect(response.status).toBe(201);
     expect(response.headers['content-type']).toMatch(/json/);
   })
@@ -61,3 +60,4 @@ describe('Teste da API /produtos', () => {
     expect(response.headers['content-type']).toMatch(/json/);
   })
 });
+
