@@ -61,6 +61,10 @@ paths:
                 $ref: "#/components/schemas/Produto"
         404:
           description: Produto não encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Mensagem"
     put:
       tags:
         - produtos
