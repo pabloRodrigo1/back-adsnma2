@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "express-generator": "^4.16.1"
+    "express-generator": "^4.16.1",
+    "mongodb": "^6.5.0"
   }
 }
