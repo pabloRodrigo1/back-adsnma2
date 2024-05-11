@@ -12,7 +12,12 @@ async function validarDados(req, res, next) {
 
 async function criar(req, res) {
   const produto = await Produto.create(req.body);
-  res.status(201).json({});
+  res.status(201).json(produto);
 }
 
-module.exports = { validarDados, criar };
+async function obterTodos(req, res) {
+  const produtos = await Produto.find({});
+  res.json(produtos);
+}
+
+module.exports = { validarDados, criar, obterTodos };

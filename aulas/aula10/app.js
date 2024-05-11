@@ -1,5 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
+
+const routerApidocs = require('./routes/router_apidocs')
 const routerProdutos = require('./routes/router_produtos');
 
 var express = require('express');
@@ -19,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use('/api-docs', routerApidocs)
 app.use('/produtos', routerProdutos);
 // app.use(express.static(path.join(__dirname, 'public')));
 
