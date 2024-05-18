@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Produto = require('../models/model_produtos');
+const mongoose = require("mongoose");
+const Produto = require("../models/model_produtos");
 
 async function validarDados(req, res, next) {
   const produto = new Produto(req.body);
@@ -7,7 +7,7 @@ async function validarDados(req, res, next) {
     await produto.validate();
     next();
   } catch (err) {
-    res.status(422).json({ msg: "Dados do produto invalidos" })
+    res.status(422).json({ msg: "Dados do produto invalidos" });
   }
 }
 
@@ -28,18 +28,36 @@ async function buscarPeloId(req, res, next) {
     if (produto) {
       next();
     } else {
-      res.status(404).json({ msg: "Produto não encontrado" })
+      res.status(404).json({ msg: "Produto nao encontado" });
     }
   } catch (err) {
     res.status(400).json({ msg: "Id invalido" });
   }
 }
-
 async function obter(req, res) {
   const id = new mongoose.Types.ObjectId(req.params.id);
   const produto = await Produto.findOne({ _id: id });
   res.json(produto);
 }
 
+async function atualizar(req, res) {
+  const id = new mongoose.Types.ObjectId(req.params.id);
+  const produto = await Produto.findOneAndUpdate({ _id: id }, req.body);
+  res.json(produto);
+}
 
-module.exports = { validarDados, criar, obterTodos, obter, buscarPeloId };
+async function remover(req, res) {
+  const id = new mongoose.Types.ObjectId(req.params.id);
+  await Produto.findOneAndDelete({ _id: id });
+  res.status(204).end();
+}
+
+module.exports = {
+  validarDados,
+  criar,
+  obterTodos,
+  buscarPeloId,
+  obter,
+  atualizar,
+  remover,
+};
