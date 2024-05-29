@@ -39,7 +39,21 @@ async function entrar(req, res) {
     }
   } else {
     res.status(400).json({ msg: "credenciais invalidas" });
+  };
+}
+
+function renovar(req, res) {
+  const token = req.headers['autorization'];
+  if (token) {
+    try {
+      const payLoad = jwt.verify(token, process.env.SEGREDO)
+      res.json({ token: jwt.sign({ email: payLoad.email }, process.env.SEGREDO) });
+    } catch (e) {
+      res.status(401).json({ msg: "token invalido" });
+    }
+  } else {
+    res.status(400).json({ msg: "token nao enviado" })
   }
 }
 
-module.exports = { criar, entrar };
+module.exports = { criar, entrar, renovar };
